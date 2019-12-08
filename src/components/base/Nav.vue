@@ -3,8 +3,8 @@ nav
       .action(@click="onClick" v-if="showNav" :class="{'hide': !showNav}")
             slot(name="icon" )
                   span.burger 
-      .navbar(v-if="showMenu || !showNav")
-            transition(:name="effect")
+      transition(:name="effect")
+            .navbar(v-if="showMenu || !showNav")
                   slot
 </template>
 <script>
@@ -54,18 +54,18 @@ nav
    display:inline-grid
    grid-template-areas 'action' 'navbar'
 .hide
-   --lapse .3s
-   transition width var(--lapse) ease-in-out, opacity var(--lapse) ease-in-out
-   @media screen and (min-width m)
-         width 0
-         opacity 0
-         overflow hidden
+      --lapse .3s
+      transition width var(--lapse) ease-in-out, opacity var(--lapse) ease-in-out
+      @media screen and (min-width m)
+            width 0
+            opacity 0
+            overflow hidden
 .action
-   --lapse .4s
-   display inline-block
-   grid-area action
-   transition width var(--lapse) ease-in-out, opacity var(--lapse) ease-in-out
-   cursor pointer
+      --lapse .4s
+      display inline-block
+      grid-area action
+      transition width var(--lapse) ease-in-out, opacity var(--lapse) ease-in-out
+      cursor pointer
 .navbar
    grid-area navbar
 .hide

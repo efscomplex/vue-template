@@ -1,9 +1,9 @@
 <template lang='pug'>
 ul.navbar(:class="!!vertical? 'vertical': 'horizontal'")
-    template(v-for="route in routes")
-        router-link(
-            :to="route.path" 
-            active-class="active") {{route.label}}
+      template(v-for="route in routes")
+            router-link(
+                  :to="route.path" 
+                  active-class="active") {{route.label}}
 </template>
 
 <script>
@@ -20,17 +20,31 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
+.popup
+      position absolute
+      background-color: var(var(--popup-bg-c),--bg-c)
+      color var(var(--popup-c), --c)
+      &:before 
+            font-size .8em
+            //content '▴'//'❌'
+            position absolute
+            top .2rem
+            right .6rem
+            cursor pointer
+            opacity .8
 .vertical
-   flex-direction:column
-   a
-      padding: 1rem 0
+      flex-direction:column
+      @extend .popup !optional
+      a
+            padding: .6rem 0
 .horizontal
    a
       padding:0 1rem
 
 ul.navbar
    display:inline-flex
-   padding:0
+   border-radius 5px
+   padding:1rem 2rem 1rem 1.4rem
    a
       text-decoration none
       text-transform capitalize
