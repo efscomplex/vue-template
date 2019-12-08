@@ -1,9 +1,9 @@
 <template lang='pug'>
 ul.navbar(:class="!!vertical? 'vertical': 'horizontal'")
-   template(v-for="route in routes")
-      router-link(
-         :to="route.path" 
-         active-class="active") {{route.label}}
+    template(v-for="route in routes")
+        router-link(
+            :to="route.path" 
+            active-class="active") {{route.label}}
 </template>
 
 <script>
@@ -32,10 +32,10 @@ ul.navbar
    display:inline-flex
    padding:0
    a
-      text-decoration:none
+      text-decoration none
+      text-transform capitalize
       display:block
       color:inherit
-      font-weight:bold
       letter-spacing:0.5px
       &:hover
          opacity:.7
